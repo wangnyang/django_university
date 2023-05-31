@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Groups</h1>
+
+    {% if groups_list %}
+    <ul>
+
+      {% for group in groups_list %}
+      <li>
+        <a href="{% url 'group'%}?id={{group.id}}">{{ group.title }} ({{ group.faculty }})</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no groups for now..</p>
+    {% endif %}
+{% endblock %}

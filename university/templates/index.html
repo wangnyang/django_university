@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h1>Homepage</h1>
+
+  <p>Welcome to <em>UNIVERSITY</em>, a very basic Django website developed as a tutorial example</p>
+
+<h2>Dynamic content</h2>
+
+  <p>Our university has the following record counts:</p>
+  <ul>
+    <li><strong>Faculties:</strong> {{ faculties }}</li>
+    <li><strong>Groups:</strong> {{ groups }}</li>
+    <li><strong>Teachers:</strong> {{ teachers }}</li>
+    <li><strong>Students:</strong> {{ students }}</li>
+  </ul>
+
+{% endblock %}

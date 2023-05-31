@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Group page</h1>
+
+    {% if group %}
+    <ul>
+
+      <li><a>Group: {{ group.title }}</a></li>
+      <li><a>Faculty: {{ group.faculty }}</a></li>
+      <li><a>Subjects:
+      {% for subject in group.subjects.all %}
+       {{ subject }},
+      {% endfor %}
+      </a></li>
+    </ul>
+    {% else %}
+      <p>Group not found..</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Faculty page</h1>
+
+    {% if faculty %}
+    <ul>
+
+      <li><a>Faculty: {{ faculty.title }}</a></li>
+        
+      <li><a>Description: {{faculty.description}}</a></li>
+      
+    </ul>
+
+    {% else %}
+      <p>Faculty not found..</p>
+    {% endif %}
+{% endblock %}

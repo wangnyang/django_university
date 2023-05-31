@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Lesson page</h1>
+
+    {% if lesson %}
+    <ul>
+      <li><a>Date: {{ lesson.day }} {{ lesson.precise_time }}</a></li> 
+      <li><a>Subject: {{ lesson.subject }}</a></li>
+      <li><a>Teacher: {{ lesson.teacher }}</a></li>
+      <li><a>Groups:
+        {% for group in lesson.groups.all %}
+         {{ group }},
+        {% endfor %}
+        </a></li>
+    </ul>
+
+    {% if form_errors %}
+        <h5>{{ form_errors }}</h5>
+    {% endif %}
+
+    <form action="/lesson/?id={{ lesson.id }}" method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Add mark">
+    </form>
+
+    {% else %}
+      <p>Lesson not found..</p>
+    {% endif %}
+{% endblock %}

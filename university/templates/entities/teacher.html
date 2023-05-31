@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Teacher page</h1>
+
+    {% if teacher %}
+    <ul>
+
+      
+    <li><a>Name: {{ teacher.full_name }}</a></li>
+    <li><a>Subjects:
+      {% for subject in teacher.subjects.all %}
+       {{ subject }},
+      {% endfor %}
+      </a></li>
+    <li><a>Faculty: {{ teacher.faculty }}</a></li>
+
+    </ul>
+
+    {% else %}
+      <p>Teacher not found..</p>
+    {% endif %}
+{% endblock %}

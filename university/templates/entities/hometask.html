@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Hometask page</h1>
+
+    {% if hometask %}
+    <ul>
+      <li><a>Lesson: {{hometask.lesson}}</a></li>
+      <li><a>Task: {{ hometask.task }}</a></li>
+    </ul>
+
+    {% else %}
+      <p>Hometask not found..</p>
+    {% endif %}
+{% endblock %}

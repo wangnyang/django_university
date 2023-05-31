@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Faculties</h1>
+
+    {% if faculties_list %}
+    <ul>
+
+      {% for faculty in faculties_list %}
+      <li>
+        <a href="{% url 'faculty'%}?id={{faculty.id}}">{{ faculty.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no faculties for now..</p>
+    {% endif %}
+{% endblock %}

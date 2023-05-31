@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  {% csrf_token %}
+    <h1>Teachers</h1>
+
+    {% if teachers_list %}
+    <ul>
+
+      {% for teacher in teachers_list %}
+      <li>
+        <a href="{% url 'teacher'%}?id={{teacher.id}}">{{ teacher.full_name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no teachers for now..</p>
+    {% endif %}
+{% endblock %}

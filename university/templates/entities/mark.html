@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Mark page</h1>
+
+    {% if mark %}
+    <ul>
+      <li><a>Student: {{mark.student}}</a></li>
+      <li><a>Lesson: {{mark.lesson}}</a></li>
+      {% if mark.mark %}
+      <li><a>Mark: {{ mark.mark }}</a></li>
+      {% endif %}
+      {% if mark.presence %}
+      <li><a>Presence: {{ mark.presence }}</a></li>
+      {% endif %}
+    </ul>
+
+    {% else %}
+      <p>Mark not found..</p>
+    {% endif %}
+{% endblock %}

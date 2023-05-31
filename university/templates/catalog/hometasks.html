@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Hometasks</h1>
+
+    {% if hometasks_list %}
+    <ul>
+
+      {% for hometask in hometasks_list %}
+      <li>
+        <a href="{% url 'hometask'%}?id={{hometask.id}}">{{ hometask.task }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no hometasks for now..</p>
+    {% endif %}
+{% endblock %}

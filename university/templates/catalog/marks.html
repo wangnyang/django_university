@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Marks</h1>
+
+    {% if marks_list %}
+    <ul>
+      {% csrf_token %}
+      {% for mark in marks_list %}
+      {% if mark.presence and not mark.mark %}
+      <li>
+        <a href="{% url 'mark'%}?id={{mark.id}}">{{ mark.student }}, {{ mark.lesson }}: {{ mark.presence }}</a>
+      </li>
+      {% elif mark.mark and not mark.presence %}
+      <li>
+        <a href="{% url 'mark'%}?id={{mark.id}}">{{ mark.student }}, {{ mark.lesson }}: {{ mark.mark }}</a>
+      </li>
+      {% else %}
+      <li>
+        <a href="{% url 'mark'%}?id={{mark.id}}">{{ mark.student }}, {{ mark.lesson }}: {{ mark.mark }}, {{ mark.presence }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no marks for now..</p>
+    {% endif %}
+
+
+{% endblock %}
